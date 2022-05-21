@@ -4,31 +4,39 @@
 </script>
 
 <header>
-	<div class="corner">
-		<a href="https://kit.svelte.dev">
-			<img src={logo} alt="SvelteKit" />
+	<div class='corner'>
+		<a href='https://kit.svelte.dev'>
+			<img src={logo} alt='SvelteKit' />
 		</a>
 	</div>
 
 	<nav>
-		<svg viewBox="0 0 2 3" aria-hidden="true">
-			<path d="M0,0 L1,2 C1.5,3 1.5,3 2,3 L2,0 Z" />
-		</svg>
 		<ul>
-			<li class:active={$page.url.pathname === '/'}><a sveltekit:prefetch href="/">Home</a></li>
-			<li class:active={$page.url.pathname === '/about'}>
-				<a sveltekit:prefetch href="/about">About</a>
+			<li class:active={$page.url.pathname === '/'}>
+				<a sveltekit:prefetch href='/'>about me</a>
 			</li>
-			<li class:active={$page.url.pathname === '/todos'}>
-				<a sveltekit:prefetch href="/todos">Todos</a>
+			<li>
+				<span class='spacer'>\</span>
+			</li>
+			<li class:active={$page.url.pathname === '/blog'}>
+				<a sveltekit:prefetch href="/blog">blog</a>
+			</li>
+			<li>
+				<span class='spacer'>/</span>
+			</li>
+			<li class:active={$page.url.pathname === '/projects'}>
+				<a sveltekit:prefetch href="/projects">projects</a>
+			</li>
+			<li>
+				<span class='spacer'>\</span>
+			</li>
+			<li class:active={$page.url.pathname === '/project-works'}>
+				<a sveltekit:prefetch href="/project-works">project works</a>
 			</li>
 		</ul>
-		<svg viewBox="0 0 2 3" aria-hidden="true">
-			<path d="M0,0 L0,3 C0.5,3 0.5,3 1,2 L2,0 Z" />
-		</svg>
 	</nav>
 
-	<div class="corner">
+	<div class='corner'>
 		<!-- TODO put something else here? github link? -->
 	</div>
 </header>
@@ -37,11 +45,13 @@
 	header {
 		display: flex;
 		justify-content: space-between;
+		background: rgba(255, 255, 255, 0.85);
 	}
 
 	.corner {
 		width: 3em;
 		height: 3em;
+		opacity: 0;
 	}
 
 	.corner a {
@@ -61,7 +71,6 @@
 	nav {
 		display: flex;
 		justify-content: center;
-		--background: rgba(255, 255, 255, 0.7);
 	}
 
 	svg {
@@ -108,7 +117,8 @@
 		display: flex;
 		height: 100%;
 		align-items: center;
-		padding: 0 1em;
+		text-align: center;
+		padding: 0 1em 0 1em;
 		color: var(--heading-color);
 		font-weight: 700;
 		font-size: 0.8rem;
@@ -118,7 +128,94 @@
 		transition: color 0.2s linear;
 	}
 
-	a:hover {
+	nav a:hover {
 		color: var(--accent-color);
+	}
+
+	nav .spacer {
+		display: flex;
+		height: 100%;
+		align-items: center;
+		/* padding: 0 1em; */
+		color: var(--heading-color);
+		font-weight: 700;
+		font-size: 0.8rem;
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+		text-decoration: none;
+	}
+
+	@media (min-width: 480px) {
+		nav .spacer {
+			/* padding: 0 0.5em 0 0.5em; */
+		}
+
+		nav a {
+			/* padding: 0 0.5em 0 0.5em; */
+		}
+	}
+
+	@media (min-width: 540px) {
+		nav a {
+			padding: 0 1.5em 0 1.5em;
+		}
+	}
+
+	@media (min-width: 600px) {
+		nav a {
+			padding: 0 2em 0 2em;
+		}
+	}
+
+	@media (min-width: 720px) {
+		nav a {
+			padding: 0 2.5em 0 2.5em;
+		}
+
+		.corner {
+			opacity: 1;
+		}
+	}
+
+	@media (min-width: 840px) {
+		nav a {
+			padding: 0 3em 0 3em;
+		}
+	}
+
+	@media (min-width: 960px) {
+		nav a {
+			padding: 0 3.5em 0 3.5em;
+		}
+	}
+
+	@media (min-width: 1080px) {
+		nav a {
+			padding: 0 4em 0 4em;
+		}
+	}
+
+	@media (min-width: 1200px) {
+		nav a {
+			padding: 0 4.5em 0 4.5em;
+		}
+	}
+
+	@media (min-width: 1320px) {
+		nav a {
+			padding: 0 5em 0 5em;
+		}
+	}
+
+	@media (min-width: 1440px) {
+		nav a {
+			padding: 0 5.5em 0 5.5em;
+		}
+	}
+
+	@media (min-width: 1560px) {
+		nav a {
+			padding: 0 6em 0 6em;
+		}
 	}
 </style>
