@@ -45,12 +45,14 @@
 	header {
 		display: flex;
 		justify-content: space-between;
+		align-items: center;
 		background: rgba(255, 255, 255, 0.85);
+		width: 100%;
 	}
 
 	.corner {
-		width: 3em;
-		height: 3em;
+		width: 0em;
+		height: 0em;
 		opacity: 0;
 	}
 
@@ -63,8 +65,8 @@
 	}
 
 	.corner img {
-		width: 2em;
-		height: 2em;
+		width: 3em;
+		height: 3em;
 		object-fit: contain;
 	}
 
@@ -90,7 +92,7 @@
 		height: 3em;
 		display: flex;
 		justify-content: center;
-		align-items: center;
+		/* align-items: center; */
 		list-style: none;
 		background: var(--background);
 		background-size: contain;
@@ -136,7 +138,7 @@
 		display: flex;
 		height: 100%;
 		align-items: center;
-		/* padding: 0 1em; */
+		padding: 0 0.5em 0 0.5em;
 		color: var(--heading-color);
 		font-weight: 700;
 		font-size: 0.8rem;
@@ -151,7 +153,7 @@
 		}
 
 		nav a {
-			/* padding: 0 0.5em 0 0.5em; */
+			padding: 0 1em 0 1em;
 		}
 	}
 
@@ -163,16 +165,18 @@
 
 	@media (min-width: 600px) {
 		nav a {
-			padding: 0 2em 0 2em;
+			padding: 0 1.5em 0 1.5em;
 		}
 	}
 
 	@media (min-width: 720px) {
 		nav a {
-			padding: 0 2.5em 0 2.5em;
+			padding: 0 2em 0 2em;
 		}
 
 		.corner {
+			width: 3em;
+			height: 3em;
 			opacity: 1;
 		}
 	}
@@ -192,6 +196,10 @@
 	@media (min-width: 1080px) {
 		nav a {
 			padding: 0 4em 0 4em;
+		}
+
+		.corner {
+			padding: 0.5em 1em 0.5em 1em;
 		}
 	}
 
