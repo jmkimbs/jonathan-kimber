@@ -1,16 +1,20 @@
 <script lang="ts">
-	import { page } from '$app/stores';
+	import mail_logo from './mail.ico';
+	import github_logo from './github.png';
+	import linkedin_logo from './linkedin.png';
 </script>
 
 <footer>
-	<p>site made by jonathan kimber for jonathan kimber</p>
+	<a href='mailto:jonathan@jonathankimber.com'><img class='ma' src={mail_logo} alt='Send me an email' /></a>
+	<a href='https://github.com/jmkimbs'><img class='gh' src={github_logo} alt='Check out my GitHub' /></a>
+	<a href='https://www.linkedin.com/in/jonathan-kimber/'><img class='lin' src={linkedin_logo} alt='Check me out on LinkedIn' /></a>
 </footer>
 
 <style>
 
 	footer {
 		display: flex;
-		flex-direction: column;
+		flex-direction: row;
 		justify-content: center;
 		align-items: center;
 		padding: 0px;
@@ -18,8 +22,23 @@
 		width: 100%;
 	}
 
-	footer a {
-		font-weight: bold;
+	img {
+		padding: 0.5em 1em 0.5em 1em;
+	}
+
+	.ma {
+		width: 32px;
+		height: 32px;
+	}
+
+	.gh {
+		width: 32px;
+		height: 32px;
+	}
+
+	.lin {
+		width: 32px;
+		height: 27px;
 	}
 
 	p {
