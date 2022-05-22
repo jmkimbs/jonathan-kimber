@@ -1,0 +1,22 @@
+{
+  "postid": {
+    "N": "1"
+  },
+  "title": {
+    "S": "Genesis Post"
+  },
+  "body": {
+    "SS": [
+      "<h1>Genesis blog post title<h1>",
+      "<p>This is the Geneis blog post</p>",
+      "<p>This is some more Genesis post info</p>",
+      "<h2>Sub Genesis</h2>",
+      "<p>Sub Genesis information</p>"
+    ]
+  },
+  "tags": {
+    "SS": [
+      "chatting"
+    ]
+  }
+}

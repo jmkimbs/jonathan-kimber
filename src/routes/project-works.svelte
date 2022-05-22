@@ -2,6 +2,11 @@
 
 </script>
 
+<svelte:head>
+	<title>About Me</title>
+	<meta name="description" content="A page to tell you all about me, Jonathan Kimber" />
+</svelte:head>
+
 <h1>Project Works</h1>
 <p>
 	Project works? I sure hope it does! But in this area, that is not guaranteed... This section changes frequently and is intended to showcase projects that catch my fleeting interest. It may be a small experiment or proof of concept, or it may be something that later makes it to projects if I find myself engrossed and work on it regularly.

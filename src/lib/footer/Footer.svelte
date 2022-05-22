@@ -5,9 +5,9 @@
 </script>
 
 <footer>
-	<a href='mailto:jonathan@jonathankimber.com'><img class='ma' src={mail_logo} alt='Send me an email' /></a>
-	<a href='https://github.com/jmkimbs'><img class='gh' src={github_logo} alt='Check out my GitHub' /></a>
-	<a href='https://www.linkedin.com/in/jonathan-kimber/'><img class='lin' src={linkedin_logo} alt='Check me out on LinkedIn' /></a>
+	<a href='mailto:jonathan@jonathankimber.com' target='_mail'><img class='ma' src={mail_logo} alt='Send me an email' /></a>
+	<a href='https://github.com/jmkimbs' target='_gh'><img class='gh' src={github_logo} alt='Check out my GitHub' /></a>
+	<a href='https://www.linkedin.com/in/jonathan-kimber/' target='_lin'><img class='lin' src={linkedin_logo} alt='Check me out on LinkedIn' /></a>
 </footer>
 
 <style>
