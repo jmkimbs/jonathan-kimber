@@ -1,0 +1,16 @@
+{
+  "postid": {
+    "N": "1"
+  },
+  "title": {
+    "S": "Genesis Post"
+  },
+  "body": {
+    "S": "Welcome to my website!"
+  },
+  "tags": {
+    "SS": [
+      "chatting"
+    ]
+  }
+}

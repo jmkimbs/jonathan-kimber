@@ -15,16 +15,26 @@
 </script>
 
 <script lang='ts'>
+	// var md = import('markdown-it')();
+
+import { parse } from "cookie";
+import { text } from "svelte/internal";
+
 	export let blogPostId: number;
 	export let blogPost: any;
+	// const result: string = md.render('# markdown-it rulezz!');
 
-	// import blogPost from `$lib/blog-posts/post-${blogPostId}`;
+	let blogPostJson: any;
 
-	// const postPath:string = `$lib/blog-posts/post-${postId}.json`
+	let fetchBlogPost = fetch('https://7h6tj6m373.execute-api.us-east-1.amazonaws.com/blog/posts')
+							.then((response) => response.text())
+							.then((response) => JSON.parse(response));
 
-	// import blogPosts from '$lib/blog-posts';
-	// const blogPost = require(blogPosts + `${postId}`);
+	
 </script>
+
+{blogPostId}
+
 <h1>
 	{blogPost.title.S}
 </h1>
@@ -33,11 +43,21 @@
 	{@html postComponent}
 {/each}
 
-<!-- {blogPost} -->
+{#await fetchBlogPost}
+	<p>No blog post yet...</p>
+{:then blogPostResult}
+	<!-- {console.log(blogPostResult)} -->
+	<p>Below me should be a stringified blog post</p>
+	<pre>{JSON.stringify(blogPostResult.Items, undefined, 2)}</pre>
+	<!-- <p>{blogPostResult}</p> -->
 
-<!-- {postPath} -->
+	{console.log(blogPostResult)};
+<!-- {:then bpr} -->
+	<!-- console.log(bpr); -->
+{:catch error}
+	<p>{error.message}</p>
+{/await}
 
-{blogPostId}
 
 <!-- {@html blogPostData} -->
 
