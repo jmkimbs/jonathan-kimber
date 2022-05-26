@@ -17,8 +17,13 @@
 <script lang='ts'>
 	// var md = import('markdown-it')();
 
-import { parse } from "cookie";
-import { text } from "svelte/internal";
+	import { parse } from "cookie";
+	import { text } from "svelte/internal";
+
+	import MarkdownIt from 'markdown-it';
+	const md = new MarkdownIt();
+
+	// let md = window.markdownit();
 
 	export let blogPostId: number;
 	export let blogPost: any;
@@ -51,7 +56,11 @@ import { text } from "svelte/internal";
 	<pre>{JSON.stringify(blogPostResult.Items, undefined, 2)}</pre>
 	<!-- <p>{blogPostResult}</p> -->
 
-	{console.log(blogPostResult)};
+	{@html md.render(blogPostResult.Items[0].body.S) }
+
+	The end
+
+	<!-- {console.log(blogPostResult)}; -->
 <!-- {:then bpr} -->
 	<!-- console.log(bpr); -->
 {:catch error}
