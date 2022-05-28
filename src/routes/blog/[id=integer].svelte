@@ -1,74 +1,46 @@
 <script context='module' lang='ts'>
 
-	export async function load({ params }) {
+	export async function load({ params, fetch  }) {
+
 		const blogPostId: number = params.id;
 
-		const blogPost: any = await import(`./../../lib/blog-posts/post-${blogPostId}`);
+		let fetchBlogPost = await fetch('https://7h6tj6m373.execute-api.us-east-1.amazonaws.com/blog/posts')
+							.then((response) => response.text())
+							.then((response) => JSON.parse(response));
 
 		return {
 			props: {
 				blogPostId,
-				blogPost,
+				blogPost: fetchBlogPost,
 			},
 		};
 	};
 </script>
 
 <script lang='ts'>
-	// var md = import('markdown-it')();
-
-	import { parse } from "cookie";
-	import { text } from "svelte/internal";
 
 	import MarkdownIt from 'markdown-it';
 	const md = new MarkdownIt();
 
-	// let md = window.markdownit();
-
 	export let blogPostId: number;
 	export let blogPost: any;
-	// const result: string = md.render('# markdown-it rulezz!');
-
-	let blogPostJson: any;
-
-	let fetchBlogPost = fetch('https://7h6tj6m373.execute-api.us-east-1.amazonaws.com/blog/posts')
-							.then((response) => response.text())
-							.then((response) => JSON.parse(response));
-
 	
 </script>
 
-{blogPostId}
-
-<h1>
-	{blogPost.title.S}
-</h1>
-
-{#each blogPost.body.SS as postComponent}
-	{@html postComponent}
-{/each}
-
-{#await fetchBlogPost}
-	<p>No blog post yet...</p>
+{#await blogPost}
+	<h1>Loading...</h1>
+	<p>I'd say grab a coffee or nip to the loo quickly but... the blog post should be here very soon.</p>
 {:then blogPostResult}
-	<!-- {console.log(blogPostResult)} -->
-	<p>Below me should be a stringified blog post</p>
-	<pre>{JSON.stringify(blogPostResult.Items, undefined, 2)}</pre>
-	<!-- <p>{blogPostResult}</p> -->
+	{@const thisBlogPost = blogPostResult.Items[0]}
 
-	{@html md.render(blogPostResult.Items[0].body.S) }
+	<h1>
+		{thisBlogPost.title.S}
+	</h1>
+	{@html md.render(thisBlogPost.body.S) }
 
-	The end
-
-	<!-- {console.log(blogPostResult)}; -->
-<!-- {:then bpr} -->
-	<!-- console.log(bpr); -->
 {:catch error}
 	<p>{error.message}</p>
 {/await}
-
-
-<!-- {@html blogPostData} -->
 
 <style>
 
