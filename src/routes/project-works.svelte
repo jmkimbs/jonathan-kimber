@@ -3,8 +3,8 @@
 </script>
 
 <svelte:head>
-	<title>About Me</title>
-	<meta name="description" content="A page to tell you all about me, Jonathan Kimber" />
+	<title>Project Works</title>
+	<meta name="description" content="Find out about all of the latest projects I am working on" />
 </svelte:head>
 
 <h1>Project Works</h1>
