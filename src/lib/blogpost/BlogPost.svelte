@@ -11,6 +11,7 @@
 </svelte:head>
 
 <div class='blogpost'>
+
 	<h1>
 		{ blogPostTitle }
 	</h1>
@@ -22,13 +23,23 @@
 
 <style>
 
-
-	.blogpost :global(h2) {
-		color: green;
+	.blogpost :global(h1) {
+		font-size: 3em;
+		margin-bottom: 0px;
 	}
 
-	:global(h2) {
-		color: red;
+	.blogpost :global(h2) {
+		margin-top: 1.5em;
+		font-size: 2em;
+	}
+
+	.blogpost :global(p) {
+		text-align: justify;
+		margin-bottom: 0.25em;
+	}
+
+	.blogpost :global(p:last-child) {
+		margin-bottom: 7em;
 	}
 
 </style>
