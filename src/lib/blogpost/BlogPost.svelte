@@ -1,13 +1,13 @@
 <script lang="ts">
-	export let pageTitle: String;
-	export let metaDescription: String;
-	export let blogPostTitle: String;
-	export let blogPostBody: String;
+	export let pageTitle: string;
+	export let metaDescription: string;
+	export let blogPostTitle: string;
+	export let blogPostBody: string;
 </script>
 
 <svelte:head>
 	<title>{ pageTitle }</title>
-	<!-- <meta name="description" content={metaDescription} /> -->
+	<meta name='description' content={metaDescription} />
 </svelte:head>
 
 <div class='blogpost'>
@@ -17,8 +17,6 @@
 	
 	{ @html blogPostBody }
 	
-	{ @html '<h2>Test</h2>'}
-	<h2>Test2</h2>
 </div>
 
 

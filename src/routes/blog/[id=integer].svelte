@@ -20,6 +20,7 @@
 
 <script lang='ts'>
 	import BlogPost from '$lib/blogpost/BlogPost.svelte'
+	import Error from '$lib/error/Error.svelte'
 	import MarkdownIt from 'markdown-it';
 	const md = new MarkdownIt();
 
@@ -28,38 +29,35 @@
 	
 </script>
 
-<svelte:head>
-	<!-- {#await blogPost}
-		<title>Blog post #{blogPostId}</title>
-	{:then blogPostResult}
-		<title>Blog - {blogPostResult.Items[0].title.S}</title>
-	{/await} -->
-
-</svelte:head>
-
 {#await blogPost}
+
 	<BlogPost
-		pageTitle='Blog post #{blogPostId}'
-		metaDescription='Placeholder description'
-		blogPostTitle='Loading...'
-		blogPostBody="<p>I'd say grab a coffee or nip to the loo quickly but... the blog post should be here very soon.</p>"
+		pageTitle={String('Blog post #' + blogPostId)}
+		metaDescription={String('Placeholder description')}
+		blogPostTitle={String('Loading...')}
+		blogPostBody={String("<p>I'd say grab a coffee or nip to the loo quickly but... the blog post should be here very soon.</p>")}
 	/>
-	
+
 {:then blogPostResult}
 
-
 	{ @const thisBlogPost = blogPostResult.Items[0] }
-	{ @const pageTitle = 'Blog - ' + thisBlogPost.title.S }
-	{ @const blogPostTitle = thisBlogPost.title.S}
-	{ @const blogPostBody = md.render(thisBlogPost.body.S) }
+	{ @const pageTitle = String('Blog - ' + thisBlogPost.title.S) }
+	{ @const blogPostTitle = String(thisBlogPost.title.S)}
+	{ @const blogPostBody = String(md.render(thisBlogPost.body.S)) }
 	
 	<BlogPost 
 		pageTitle={pageTitle}
-		metaDescription='Placeholder description'
+		metaDescription='TODO: description logic (manually written or body trimmed or ?)'
 		blogPostTitle={blogPostTitle}
 		blogPostBody={blogPostBody}
 	/>
 
 {:catch error}
-	<p>{error.message}</p>
+
+	<Error
+		errorTitle={String('Error')}
+		errorPicture={String('$static/svelte-welcome.png')}
+		errorBody={String(error.message)}
+	/>
+
 {/await}
