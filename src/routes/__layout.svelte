@@ -34,32 +34,15 @@
 
 
 	@media (min-width: 480px) {
-		footer {
-			padding: 40px 0;
-		}
 
 		main {
-			/* margin-left: 7%;
-			margin-right: 7%; */
 			width: 90%
-		}
-	}
-
-	@media (min-width: 600px) {
-		main {
-			/* width: 80%; */
 		}
 	}
 
 	@media (min-width: 720px) {
 		main {
 			width: 80%;
-		}
-	}
-
-	@media (min-width: 840px) {
-		main {
-			/* width: 60%; */
 		}
 	}
 

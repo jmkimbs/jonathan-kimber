@@ -13,7 +13,7 @@
 	<nav>
 		<ul>
 			<li class:active={$page.url.pathname === '/'}>
-				<a sveltekit:prefetch href='/'>about me</a>
+				<a sveltekit:prefetch href='/about-me'>about me</a>
 			</li>
 			<li>
 				<span class='spacer'>\</span>
