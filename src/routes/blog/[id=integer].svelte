@@ -22,10 +22,13 @@
 	import BlogPost from '$lib/blogpost/BlogPost.svelte'
 	import Error from '$lib/error/Error.svelte'
 	import MarkdownIt from 'markdown-it';
+import { now } from 'svelte/internal';
 	const md = new MarkdownIt();
 
 	export let blogPostId: number;
 	export let blogPost: any;
+
+	export let manualUndefined: any = undefined;
 	
 </script>
 
@@ -36,20 +39,25 @@
 		metaDescription={String('Placeholder description')}
 		blogPostTitle={String('Loading...')}
 		blogPostBody={String("<p>I'd say grab a coffee or nip to the loo quickly but... the blog post should be here very soon.</p>")}
+		blogPostEditDates={[Date.now()]}
 	/>
 
 {:then blogPostResult}
 
-	{ @const thisBlogPost = blogPostResult.Items[0] }
+	
+
+	{ @const thisBlogPost = blogPostResult.Items[0] }	
 	{ @const pageTitle = String('Blog - ' + thisBlogPost.title.S) }
 	{ @const blogPostTitle = String(thisBlogPost.title.S)}
 	{ @const blogPostBody = String(md.render(thisBlogPost.body.S)) }
-	
+	{ @const blogPostEditDates = thisBlogPost.editDates.SS }
+
 	<BlogPost 
 		pageTitle={pageTitle}
 		metaDescription='TODO: description logic (manually written or body trimmed or ?)'
 		blogPostTitle={blogPostTitle}
 		blogPostBody={blogPostBody}
+		blogPostEditDates={blogPostEditDates}
 	/>
 
 {:catch error}
