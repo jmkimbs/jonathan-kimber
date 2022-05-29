@@ -22,13 +22,10 @@
 	import BlogPost from '$lib/blogpost/BlogPost.svelte'
 	import Error from '$lib/error/Error.svelte'
 	import MarkdownIt from 'markdown-it';
-import { now } from 'svelte/internal';
 	const md = new MarkdownIt();
 
 	export let blogPostId: number;
 	export let blogPost: any;
-
-	export let manualUndefined: any = undefined;
 	
 </script>
 
