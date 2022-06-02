@@ -19,7 +19,9 @@
 				employmentHistory: [
 					{
 						company:'Amazon', 
-						startDate:'UTC-START-DATE', 
+						role: 'Software Development Engineer',
+						startDate: new Date(),
+						endDate: new Date(), 
 						responsibilities: [
 							'stuff', 
 							'more stuff'
@@ -73,6 +75,8 @@
 </script>
 
 <script lang='ts'>
+	import ExperienceEntry from '$lib/experience/ExperienceEntry.svelte'
+
 	export let aboutMe: any;
 </script>
 
@@ -84,9 +88,7 @@
 {#await aboutMe}
 
 {:then details}
-	<!-- { @const firstname = 'Jonathan' } 
-	{ @const middlename = 'Marshall' } 
-	{ @const surname = 'Kimber' }  -->
+
 	{ @const name = details.firstname + ' ' + details.middlename + ' ' + details.surname }
 
 	<h1>About me</h1>
@@ -97,16 +99,21 @@
 	
 	<h2>Employment history</h2>
 	{#each details.employmentHistory as job}
-		<div>
-			<h2>{job.company}</h2>
-			<span>{job.startDate}</span>
-		</div>
+
+		<ExperienceEntry 
+			title={job.role}
+			location={job.company}
+			startDate={job.startDate}
+			endDate={job.endDate}
+			achievements={[]}
+		/>
+
 	{/each}
 
 	<h2>Education history</h2>
 
 	{#each details.educationHistory as educationItem} 
-
+		<!-- TODO -->
 	{/each}
 
 	<h2>Skills - Languages</h2>
