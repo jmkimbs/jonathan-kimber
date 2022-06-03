@@ -38,14 +38,15 @@ import { is_empty } from "svelte/internal";
         border-radius: 20px;
         border: 0.1em solid black;
         /* padding: 0.25em 1em 1em 1em; */
-        display: flex;
+        display: inline-flex;
         flex-direction: column;
         justify-content: center;
+        width: fit-content;
     }
 
     .experience-entry div {                
         /* background-color: #f4f4f4;  */
-        /* margin: 2px 2px 2px 10px;  */
+        margin: 2px 10px 2px 10px; 
         font-size: 1em;
     }
 
@@ -55,14 +56,13 @@ import { is_empty } from "svelte/internal";
         margin: 10px 0 5px 0;
     }
 
-    .experience-entry span {
-        display: block;
-        margin-bottom: 400px;
-        background-color: red;
+    .experience-entry div:last-of-type {
+        margin-bottom: 10px;
+        /* background-color: red; */
     }
 
-    .experience-entry .duration {
-        /* margin-bottom: 30px; */
+    .experience-entry div span {
+        /* width: auto; */
     }
 
 
