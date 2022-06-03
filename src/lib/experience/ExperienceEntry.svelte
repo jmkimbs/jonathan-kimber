@@ -13,15 +13,21 @@ import { is_empty } from "svelte/internal";
 
 <div class='experience-entry'>
 
-    {#if title.length > 0}
-        <h1>{title}</h1>
-    {/if}
+    <div>
+        {#if title.length > 0}
+            <h1>{title}</h1>
+        {/if}
+    </div>
+    
+    <div>
+        {#if location.length > 0}
+            <span class='location'>{location}</span>
+        {/if}
+    </div>
 
-    {#if location.length > 0}
-        <span class='location'>{location}</span>
-    {/if}
-
-    <span class='duration'>From {startDate.toLocaleDateString()} until {endDate.toLocaleDateString()}</span>
+    <div>
+        <span class='duration'>From {startDate.toLocaleDateString()} until {endDate.toLocaleDateString()}</span>
+    </div>
     <!-- {#if startDate} -->
 
 </div>
@@ -29,25 +35,34 @@ import { is_empty } from "svelte/internal";
 <style>
 
     .experience-entry {
-        border-radius: 10px;
+        border-radius: 20px;
         border: 0.1em solid black;
-        padding: 0.25em 1em 1em 1em;
+        /* padding: 0.25em 1em 1em 1em; */
         display: flex;
         flex-direction: column;
+        justify-content: center;
+    }
+
+    .experience-entry div {                
+        /* background-color: #f4f4f4;  */
+        /* margin: 2px 2px 2px 10px;  */
+        font-size: 1em;
     }
 
     .experience-entry h1 {
         text-align: left;
         font-size: 1.25em;
-        display: flex;
+        margin: 10px 0 5px 0;
     }
 
     .experience-entry span {
-        display: flex;
+        display: block;
+        margin-bottom: 400px;
+        background-color: red;
     }
 
-    .experience-entry .location {
-
+    .experience-entry .duration {
+        /* margin-bottom: 30px; */
     }
 
 
